@@ -8,22 +8,25 @@
 #include "pipe.h"
 
 class Game : public QGraphicsView {
-	Q_OBJECT
+    Q_OBJECT
 public:
-	Game(QWidget* parent = nullptr);
-	void keyPressEvent(QKeyEvent* event);
-	void restartGame();
+    Game(QWidget* parent = nullptr);
+    void keyPressEvent(QKeyEvent* event);
+    void restartGame();
 private slots:
-	void gameLoop();
+    void gameLoop();
 
 private:
-	QGraphicsScene* scene;
-	QGraphicsTextItem* scoreText;
-	Bird* bird;
-	QTimer* timer;
-	QList<Pipe*> pipes;
-	int score;
-	bool isGameOver;
+    QGraphicsScene* scene;
+    QGraphicsTextItem* scoreText;
+    Bird* bird;
+    QTimer* timer;
+    QGraphicsTextItem* startText;
+    int gameState;
+    QList<Pipe*> pipes;
+    int score;
+    bool isGameOver;
+    void startGame();
 };
 
 #endif // GAME_H
